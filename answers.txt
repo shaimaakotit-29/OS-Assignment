@@ -1,0 +1,52 @@
+Operating Systems - Assignment 2
+Basic forks and C Style Development
+Name: Shaimaa Mohamed Kotit
+ID: 24100570
+
+1. Process creation (process_creation.c)
+The fork() function creates a new process. The original process is
+called the parent and the new process is called the child.
+If fork() returns 0, the code is running in the child process.
+If it returns a positive number, it is running in the parent process.
+If it returns a negative number, the process creation failed.
+getpid() prints the ID of the current process.
+The parent and child can print in either order.
+
+2. Background processes and process control
+sleep 300 & starts a process in the background.
+jobs lists the background jobs in the current shell.
+ps aux | grep sleep helps find the PID of the sleep process.
+kill PID stops the process (replace PID with its actual number).
+kill -STOP PID pauses the process.
+kill -CONT PID resumes the process.
+These commands are run in the terminal, not compiled with GCC.
+
+3. Linking two files (file1.c and file2.c)
+file1.c contains the hello() function which prints a message.
+file2.c declares and calls hello() inside main().
+GCC compiles and links both files into one executable called
+output_program. If the message in file1.c is changed and the files
+are compiled again, the new message appears when the program runs.
+
+4. What is the job of the linker?
+The linker combines object files and connects function calls to their
+definitions. It produces an executable file. In this example it
+connects the hello() call in file2.c to its definition in file1.c.
+
+5. Simple program (simple_program.c)
+This program prints a message using printf().
+The ldd command lists the shared libraries used by the executable.
+For example, libc.so.6 is the C standard library and the dynamic
+loader on x86-64 Linux is usually ld-linux-x86-64.so.2.
+The exact names and paths can be different on other systems.
+
+6. What is the job of the loader?
+The loader loads the executable into memory so it can run. For a
+dynamically linked program, the dynamic loader also loads the shared
+libraries needed by the program before it starts executing.
+
+7. Makefile
+The make command compiles the three examples using GCC.
+The make clean command removes the executable files.
+
+The C examples are reproduced from the course handout for study.
