@@ -1,70 +1,66 @@
 # Operating Systems - Assignment 2
 
-**Name:** Shaimaa Mohamed Kotit
-**ID:** 24100570
+**Basic Forks and C Style Development**
 
-Basic forks and C Style Development
+**Student Name:** Shaimaa Mohamed Kotit  
+**Student ID:** 24100570  
+**Course:** CSE233 - Operating Systems  
+**University:** Alamein International University
 
 ## Description
 
-This project practices process creation, linking C files and checking shared libraries using the examples from Lab 5.
+This assignment demonstrates three basic operating system concepts using C and Linux. It is based on the examples in Lab 5 (Process Management).
 
-## Requirements
-
-Linux, GCC and Make.
+- **Process creation:** Create a child process using `fork()` and display the process IDs.
+- **Linker:** Compile and link two C files into one executable program.
+- **Loader:** Use `ldd` to list the shared library dependencies of an executable.
 
 ## Installation
 
-On Ubuntu, install the required tools:
+### Requirements
+
+- Linux Ubuntu
+- GCC compiler
+- GNU Make
+- `ldd` (normally available on Linux)
+- Git (optional, for cloning the repository)
+
+Install the required build tools on Ubuntu or Linux Mint if they are not already installed:
 
 ```bash
+sudo apt update
 sudo apt install gcc make
+```
+
+Download and extract the project ZIP file, or clone the repository:
+
+```bash
+git clone https://github.com/shaimaakotit-29/OS-Assignment.git
+cd OS-Assignment
 ```
 
 ## Usage
 
-Compile all examples:
+Open a terminal in the project directory and compile all three examples:
 
 ```bash
 make
 ```
 
-Run the programs:
+### 1. Process Creation
 
 ```bash
 ./process_creation
-./output_program
-./simple_program
-ldd simple_program
 ```
 
-The process IDs and the order of the parent and child messages may change between runs.
+The program prints the parent and child process IDs. Example output:
 
-To remove the executable files:
-
-```bash
-make clean
+```text
+This is the parent process. PID: 1234
+This is the child process. PID: 1235
 ```
 
-## Files
-
-- `process_creation.c`: creates a child process using fork().
-- `file1.c` and `file2.c`: demonstrate linking two C files.
-- `simple_program.c`: demonstrates a program used with ldd.
-- `answers.txt`: explanations and process control commands.
-- `Makefile`: compiles the programs.
-
-## Screenshots
-
-### 1. Process Creation (fork)
-
-```bash
-make clean
-make
-./process_creation
-```
-
-![Process creation and compilation](screenshots/process_creation.png)
+The actual IDs and the order of the messages may change each time.
 
 ### 2. Linker
 
@@ -72,7 +68,11 @@ make
 ./output_program
 ```
 
-![Linker output](screenshots/linker.png)
+Expected output:
+
+```text
+Hello from file1!
+```
 
 ### 3. Loader
 
@@ -81,9 +81,70 @@ make
 ldd simple_program
 ```
 
-![Loader output and shared libraries](screenshots/loader.png)
+Expected program output:
+
+```text
+This is a simple program.
+```
+
+The `ldd` command lists the shared library dependencies. The exact library paths and addresses depend on the system.
+
+### Clean the project
+
+```bash
+make clean
+```
+
+This removes the generated executable files.
+
+## Visuals (Screenshots)
+
+### Process Creation and Compilation
+
+![Compilation and process creation](screenshots/process_creation.png)
+
+### Linker Output
+
+![Linker program output](screenshots/linker.png)
+
+### Loader Output
+
+![Loader program output and shared libraries](screenshots/loader.png)
+
+## Project Structure
+
+| File or directory | Description |
+| --- | --- |
+| `process_creation.c` | Demonstrates process creation using `fork()`. |
+| `file1.c` | Defines the `hello()` function. |
+| `file2.c` | Declares and calls the `hello()` function. |
+| `simple_program.c` | Prints a message and provides an executable for inspecting dependencies. |
+| `Makefile` | Builds all three executables and removes them using the clean target. |
+| `answers.txt` | Explains the C files, Makefile, linker, loader and process control commands. |
+| `screenshots/` | Contains compilation and execution screenshots. |
+| `README.md` | Explains the project and how to use it. |
+| `LICENSE` | Contains the MIT license. |
+
+For the theory answers and code explanations, see [answers.txt](answers.txt).
+
+## Support
+
+For technical issues with the repository, use the [GitHub Issues page](https://github.com/shaimaakotit-29/OS-Assignment/issues), if enabled. For questions about the assignment requirements, refer to the course instructor.
+
+## Contributing
+
+This repository is for an individual course assignment. Any contributions or changes must follow the course rules. To check a change locally, run `make clean`, `make`, and the three examples described in the Usage section.
+
+## Authors and Acknowledgments
+
+- **Student submitting the assignment:** Shaimaa Mohamed Kotit (24100570).
+- **Code reference:** CSE233 Lab 5 - Process Management, Alamein International University.
 
 ## License
 
-This project is licensed under the MIT License.
-See [LICENSE](LICENSE) for the full text.
+See the [MIT License](LICENSE). It applies to original contributions that the copyright holder is entitled to license.
+Third-party course materials and any reused code remain subject to their original rights and applicable permissions.
+
+## Project Status
+
+This repository contains the examples and documentation prepared for Assignment 2.
